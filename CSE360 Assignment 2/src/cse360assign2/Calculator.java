@@ -4,8 +4,8 @@
  *
  *Class Description: 
  *This class consist of a constructor (Calculator()), a private global,
- *integer, one method that returns an integer, one method that returns
- * a string, and four void methods.
+ *integer, a private global string, one method that returns an integer, 
+ *one method that returns a string, and four void methods.
  *
  *When the add(), subtract(), multiply(), or divide() methods are 
  *called and passed an integer, the appropriate operation will be
@@ -19,15 +19,18 @@ package cse360assign2;
 public class Calculator 
 {
 private int total;
+private String history;
 
 	/**
 	 * The Calculator() method is the constructor for the Calculator
-	 * class. It initializes the total integer to 0.
+	 * class. It initializes the total integer to 0. Also, it initializes
+	 * the history string to 0. 
 	 */
 
 	public Calculator () 
 	{
 		total = 0;  // not needed - included for clarity
+		history = "0";
 	}
 	
 	/**
@@ -46,7 +49,8 @@ private int total;
 	/**
 	 * The add() method takes in an integer. It then adds this
 	 * integer to the total and updates the total integer value.
-	 * Additionally, it will update the history of operations.
+	 * Additionally, it will update the history of operations by
+	 * adding to the history string.
 	 * 
 	 * @param value - the number passed in by the user.
 	 */
@@ -54,12 +58,14 @@ private int total;
 	public void add (int value) 
 	{
 		total = total + value;
+		history = history + " + " + value;
 	}
 	
 	/**
 	 * The subtract() method takes in an integer. It then subtracts
 	 * the parameter from the total and updates the total value.
-	 * Additionally, it updates the history of operations.
+	 * Additionally, it updates the history of operations by adding 
+	 * to the history string.
 	 * 
 	 * @param value - the number passed in by the user. 
 	 */
@@ -67,12 +73,14 @@ private int total;
 	public void subtract (int value) 
 	{
 		total = total - value;
+		history = history + " - " + value;
 	}
 	
 	/**
 	 * The multiply() method takes in an integer. It then multiplies
 	 * the total by the parameter and updates the total. Additionally,
-	 * it updates the history of operations. 
+	 * it updates the history of operations by adding to the history
+	 * string. 
 	 * 
 	 * @param value - the value passed in by the user.
 	 */
@@ -80,12 +88,14 @@ private int total;
 	public void multiply (int value) 
 	{
 		total = total * value;
+		history = history + " * " + value;
 	}
 	
 	/**
 	 * The divide() method takes in an integer. It then divides the
 	 * total by the parameter and updates the total value.
-	 * Additionally, it updates the history of operations. 
+	 * Additionally, it updates the history of operations by adding
+	 * to the history string. 
 	 * 
 	 * @param value - the value passed in by the user.
 	 */
@@ -100,6 +110,7 @@ private int total;
 		{
 			total = total / value;
 		}
+		history = history + " / " + value;
 	}
 	
 	/**
@@ -112,7 +123,7 @@ private int total;
 	
 	public String getHistory () 
 	{
-		return "";
+		return history;
 	}
 
 }
